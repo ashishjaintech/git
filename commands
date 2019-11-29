@@ -18,4 +18,15 @@ git config --global user.email "ASHISHJAINTECH@GMAIL.COM"
 Cloning branch from remote
 git clone https://github.com/ashishjaintech/git.git
 
-			
+Adding all files after change
+git add *
+
+Committing added files with comment
+git commit -m "Git start with initial commands"
+
+Pusing committed files to remote, it will ask credentials
+git push
+
+For checking any change in repository
+git status
+
