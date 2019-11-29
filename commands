@@ -98,6 +98,12 @@ Steps
 	2. copy the content from id_rsa.pub
 	3. add it in the settings in gitup by adding new key in ssh and gpg keys section
 	4. git clone git@github.com:ashishjaintech/projects.git
+
+
+Pushing to your personal repository from office system
+	set git remote set-url origin git@github.com:ashishjaintech/git.git otherwise it will take default, office id.
+
+
 	
 
 
