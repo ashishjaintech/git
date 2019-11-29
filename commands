@@ -1,0 +1,21 @@
+									GIT COMMANDS
+											
+Initialising a git directory	
+git init
+
+Check the version
+git --version
+
+Listing configuration settings
+git config --list
+
+Setting name configuration globally
+git config –global user.name "ASHISH JAIN"
+
+Setting email configuration globally
+git config --global user.email "ASHISHJAINTECH@GMAIL.COM" 
+
+Cloning branch from remote
+git clone https://github.com/ashishjaintech/git.git
+
+			
