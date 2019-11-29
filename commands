@@ -49,9 +49,14 @@ It will give you error : The authenticity of host 'github.com (13.234.210.38)' c
 	Github requires public key for ssh verification. 
 Steps for solving this problem :-
 	1. Generate public key
-		ssh-keygen -t rsa -b 4096 -C "ASHISHJAINTECH@GMAIL.COM" or ssh-keygen only will also work
+		ssh-keygen -t rsa -b 4096 -C "ASHISHJAINTECH@GMAIL.COM"
 	This command will generate pub key at following path
-		c/Users/dell/.ssh/
+	Windows : c/Users/dell/.ssh/
+	Ubuntu : go to user home directory 
+		/home/asjain
+		press ctrl + h for showing hidden .ssh folder
+		then you can copy content from file /home/asjain 
+		or get the content from cat ~/.ssh/id_rsa.pub
 	2. Open this file : id_rsa.pub
 	3. Go to github account in Personal settings
 	4. Click on SSH and GPG keys option
@@ -73,6 +78,27 @@ Steps creating a project locally and push to remote repository
 	7. git commit -m "first commit"
 	8. git remote add origin https://github.com/ashishjaintech/jenkin
 	9. git push -u origin master
+
+
+
+Adding your profile in office system.
+	
+You can configure an individual repo to use a specific user / email address which overrides the global configuration. 
+Go to the root of the repository
+	git config user.name "ASHISH JAIN"
+	git config user.email "ASHISHJAINTECH@GMAIL.COM"
+
+
+And for remaining system global configuration will work as created on the top, because global user / email is configured in your ~/.gitconfig
+
+
+How to connect private repository from different system.
+Steps 
+	1. ssh-keygen -t rsa -b 4096 -C "ASHISHJAINTECH@GMAIL.COM"
+	2. copy the content from id_rsa.pub
+	3. add it in the settings in gitup by adding new key in ssh and gpg keys section
+	4. git clone git@github.com:ashishjaintech/projects.git
+	
 
 
 
