@@ -10,7 +10,7 @@ Listing configuration settings
 	git config --list
 
 Setting name configuration globally
-	git config –global user.name "ASHISH JAIN"
+	git config --global user.name "ASHISH JAIN"
 
 Setting email configuration globally
 	git config --global user.email "ASHISHJAINTECH@GMAIL.COM" 
