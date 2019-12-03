@@ -104,8 +104,13 @@ Pushing to your personal repository from office system
 	set git remote set-url origin git@github.com:ashishjaintech/git.git otherwise it will take default, office id.
 
 
-	
-
-
-
+Move master back to serveral commits
+	Checkout master branch
+		git checkout master
+	Copy the commit id you want to move by following command
+		git log 
+	Give the commit id with following command
+		git reset --hard <commit_id>
+	Push it to master branch	
+		git push -f origin master
 
