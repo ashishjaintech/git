@@ -1,8 +1,11 @@
-									GIT COMMANDS
+						GIT COMMANDS
 
-Check the version
+Check the version, or git installation confirmation by following command
 	git --version
-											
+
+
+Git Local prerequisites
+--------------------------------------------------------------------------------------------
 Initialising a git directory	
 	git init
 
@@ -15,15 +18,28 @@ Setting name configuration globally
 Setting email configuration globally
 	git config --global user.email "ASHISHJAINTECH@GMAIL.COM" 
 
+Setting editor for ubuntu os
+	git config --global core.editor Vim  
+---------------------------------------------------------------------------------------------
+
+
+Adding key to remote for getting access
+----------------------------------------------------------------------------------------------
 Simple Key generation process for adding our id_rsa.pub key in gerrit setting in ssh add key section 
-for working with repositories after access
 	ssh-keygen
 hit enter many times, it will generate file id_rsa.pub and give you the path of id_rsa.pub
-just copy the content and add in settings
+just copy the content in id_rsa.pub file and add in settings
+----------------------------------------------------------------------------------------------
 	
-Cloning branch from remote
-	git clone https://github.com/ashishjaintech/git.git
 
+Cloning branch from remote by https
+	git clone https://github.com/ashishjaintech/git.git
+or ssh
+	git clone git@github.com:ashishjaintech/git.git
+
+
+Commiting files to remote or intermediatory repository
+----------------------------------------------------------------------------------------------
 Adding all files after change
 	git add *
 
@@ -36,89 +52,104 @@ Then same process, we can also add and commit with single command if file has be
 If there is an intermidiate verification process integrated like gerrit for review then pushing commited files
 	git push origin HEAD:refs/for/<branch name>
 
-Or pusing committed files to remote directly, it will ask credentials
+Or pusing committed files to remote directly if gerrit is not there, it will ask credentials
 	git push
+----------------------------------------------------------------------------------------------
+
 
 For checking any change in repository
 	git status
+	
+For checking current branch
+	git branch
+	
+For checking all branch
+	git branch -a
+
+Git new branch creation from existing branch
+	git branch <newbranchname> 
+
+Git new branch creation and checkout to new branch
+	git checkout <existingbranch> <newbranchname> 
+
+Git checkout clears current changes in file and make it in sync with remote version
+	git checkout gradle.properties
+
+Git checkout clears all changes made in current local branch and sync it with remote version
+	git checkout .
+
 
 Before running push command local files should be in sync with remote branch, 
+----------------------------------------------------------------------------------------------
 First we should save our changes in stash
 	git stash
-
-For getting the previous saved code from stash 
-	git stash pop
 
 For sync with remote branch
 	git pull --rebase
 
-If you clone remote branch by git ssh url 
-	git clone git@github.com:ashishjaintech/docker.git
-It will give you error : The authenticity of host 'github.com (13.234.210.38)' can't be established.
-	Github requires public key for ssh verification. 
-Steps for solving this problem :-
-	1. Generate public key
-		ssh-keygen -t rsa -b 4096 -C "ASHISHJAINTECH@GMAIL.COM"
-	This command will generate pub key at following path
-	Windows : c/Users/dell/.ssh/
-	Ubuntu : go to user home directory 
-		/home/asjain
-		press ctrl + h for showing hidden .ssh folder
-		then you can copy content from file /home/asjain 
-		or get the content from cat ~/.ssh/id_rsa.pub
-	2. Open this file : id_rsa.pub
-	3. Go to github account in Personal settings
-	4. Click on SSH and GPG keys option
-	5. Add New 
-	6. Give the title name 
-	7. Copy content from id_rsa.pub and paste it in key option
-	8. Press Add ssh key button
-	9. It will ask password to continue
-	10 You have successfully added ssh key, now you can clone repositories with ssh url
+For getting the previous saved code from stash 
+	git stash pop
+
+You may have some conflict after stash pop command, resolve conflict manually 
+then do 
+Adding all files after change
+	git add *
+
+Committing added files with comment
+	git commit -m "Git start with initial commands"
+
+If there is an intermidiate verification process integrated like gerrit for review then pushing commited files
+	git push origin HEAD:refs/for/<branch name>
+
+Or pusing committed files to remote directly if gerrit is not there, it will ask credentials
+	git push
+
+----------------------------------------------------------------------------------------------
 
 
-Steps creating a project locally and push to remote repository
-	1. Create a remote repository on git hub named jenkin
-	2. Create a new folder on the command line jenkin
-	3. cd in jenkin folder 
-	4. echo "# projects" >> README.md
-	5. git init
-	6. git add README.md
-	7. git commit -m "first commit"
-	8. git remote add origin https://github.com/ashishjaintech/jenkin
-	9. git push -u origin master
+How to cherry-pick one commit from one branch to another branch and push to remote
+----------------------------------------------------------------------------------------------
+it will show you the commits, take the commit id you want to cherry-pick in another branch
+	git log 
 
+checkout in another branch where you want to cherry-pick.
+	git checkout <branch name>
 
-Adding your profile in office system.
+run cherry-pick command with commit id
+	git cherry-pick <commitid>
+
+it is possible you cherry-pick may create conflich in code, then solve conflict manually and add files
+	git add *
+
+then instead of adding commit with a message run following, this command should only run when there is conflict
+	git cherry-pick --continue
 	
-You can configure an individual repo to use a specific user / email address which overrides the global configuration. 
-Go to the root of the repository
-	git config user.name "ASHISH JAIN"
-	git config user.email "ASHISHJAINTECH@GMAIL.COM"
+If there is an intermidiate verification process integrated like gerrit for review then pushing commited files
+	git push origin HEAD:refs/for/<branch name>
 
+Or pusing committed files to remote directly if gerrit is not there, it will ask credentials
+	git push	
+-----------------------------------------------------------------------------------------------	
 
-And for remaining system global configuration will work as created on the top, because global user / email is configured in your ~/.gitconfig
+Ammend the your last commit after pushing code to gerrit 
+or 
+If something needs to be changed in review
+----------------------------------------------------------------------------------------------
+Put the current changes in files to stash
+	git stash 
+	
+Make the required changes in the files
 
+Adding all files after change
+	git add *
+	
+Take the change id of you commit from gerrit
 
-How to connect private repository from different system.
-Steps 
-	1. ssh-keygen -t rsa -b 4096 -C "ASHISHJAINTECH@GMAIL.COM"
-	2. copy the content from id_rsa.pub
-	3. add it in the settings in gitup by adding new key in ssh and gpg keys section
-	4. git clone git@github.com:ashishjaintech/projects.git
+Amending with change id in commit command, it will open a new window where you can put copied gerrit change id in 
+second blank line or ignore if change id is there already during multiple amends
+	git commit --amend 
 
-
-Pushing to your personal repository from office system
-	set git remote set-url origin git@github.com:ashishjaintech/git.git otherwise it will take default, office id.
-
-
-Move master back to serveral commits
-	Checkout master branch
-		git checkout master
-	Copy the commit id you want to move by following command
-		git log 
-	Give the commit id with following command
-		git reset --hard <commit_id>
-	Push it to master branch	
-		git push -f origin master
-
+Pushing commited files and ask for review again
+	git push origin HEAD:refs/for/<branch name>	
+----------------------------------------------------------------------------------------------
+	
