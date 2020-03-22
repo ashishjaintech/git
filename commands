@@ -38,10 +38,22 @@ or ssh
 	git clone git@github.com:ashishjaintech/git.git
 
 
+
 Commiting files to remote or intermediatory repository
 ----------------------------------------------------------------------------------------------
+For checking any change in repository
+	git status
+	
 Adding all files after change
 	git add *
+
+ or git add .
+	
+Adding only particular file
+	git add <particular file path with complete name and extension> this you can get by running git status command
+	
+Adding only java file
+	git add *.java
 
 Committing added files with comment
 	git commit -m "Git start with initial commands"
@@ -57,9 +69,6 @@ Or pusing committed files to remote directly if gerrit is not there, it will ask
 ----------------------------------------------------------------------------------------------
 
 
-For checking any change in repository
-	git status
-	
 For checking current branch
 	git branch
 	
