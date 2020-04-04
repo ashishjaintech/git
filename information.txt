@@ -1,0 +1,35 @@
+						GIT INFORMATION
+1. Three levels  
+	git config --system (Top most) 	/etc/gitconfig
+	git config --global (User) 	~/.gitconfig
+	git config --local  (Folder)	.git/config
+
+	local overrides global and global overrides system
+	default setting is global, means do not need to give --global
+
+2. Staging means .git/index file will have the changes
+
+3. Committing without m flag will open editor and ask you to add the commit message.
+
+4. git log gives output in reverse chronological order
+
+5. Remote and master branch commits will come prior to other branch commits while merging
+
+6. Fast forward when master has no additional commits since it was branched and branch has many commits and branch is merged in local repository
+
+7. Recursive when master has additional commits since it was branched and branch has many commits and branch is merged in local repository,
+   Master commits will get priority in sequence and then branch commits then a new merge commit in both either conflict is there or not.
+
+8. If same file has been changed on local as well as on remote then pushing before pulling is rejected, after pulling a new merge commit is created.
+
+9. Remote repository is termed as origin and local repository is termed as master
+
+10. Before pushing to remote always stash your changes and get pull --rebase and retrieve from stash
+
+11. git branch shows active branch with * sign
+
+12. always analyze the difference before merging
+
+13. Never use git rebase on public branch
+
+
