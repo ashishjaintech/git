@@ -7,7 +7,7 @@
 2. Git Local prerequisites
 
 Make a directory
-	md <directory name>
+	mkdir <directory name>
 
 Initialising a git directory	
 	git init
@@ -48,6 +48,7 @@ Following command will ask user and password every time
 
 Reset staged file to untracked
 	git reset HEAD <fileName>
+	git reset <fileName>
 
 Reset all to untracked
 	git reset
@@ -84,6 +85,9 @@ Will display in graph format
 
 Will display for a particular branch
 	git log branchname --oneline --decorate --graph
+
+Will display file names with commit 
+	git log --stat
 
 
 7. Remove file
@@ -413,5 +417,6 @@ second blank line or ignore if change id is there already during multiple amends
 
 Pushing commited files and ask for review again
 	git push origin HEAD:refs/for/<branch name>	
+
 
 
